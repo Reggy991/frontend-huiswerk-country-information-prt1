@@ -1,0 +1,114 @@
+@import "https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap";
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  background-color: #e7ecef;
+}
+
+:root {
+  --color-green: #4c824b;
+  --color-blue: #5475c1;
+  --color-yellow: #ffc600;
+  --color-red: #d14e5c;
+  --color-purple: #a653ba;
+  --color-off-white: #fdf5e6;
+}
+
+body {
+  font-family: Roboto, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: Rubik, sans-serif;
+}
+
+h1 {
+  font-size: 50px;
+}
+
+.subtitle {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+ul {
+  list-style-type: none;
+}
+
+header {
+  height: 500px;
+  background-image: url("world_map.34fa97b5.png");
+  background-position: center;
+  background-size: cover;
+  flex-direction: column;
+  padding-top: 125px;
+  display: flex;
+}
+
+.header-wrapper {
+  text-align: center;
+}
+
+main {
+  padding: 30px;
+}
+
+.outer-container {
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  display: flex;
+}
+
+.ul-countries {
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.country {
+  flex-basis: 33.33%;
+  padding-left: 50px;
+}
+
+.img-flag {
+  padding-right: 5px;
+  font-size: 22px;
+}
+
+.green {
+  color: var(--color-green);
+}
+
+.blue {
+  color: var(--color-blue);
+}
+
+.yellow {
+  color: var(--color-yellow);
+}
+
+.red {
+  color: var(--color-red);
+}
+
+.purple {
+  color: var(--color-purple);
+}
+
+.error-message {
+  color: red;
+}
+
+.img-world-map {
+  width: 100%;
+  margin: 20px;
+}
+
+/*# sourceMappingURL=index.4d663569.css.map */
