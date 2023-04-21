@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
+/* CSS-Reset */
 * {
     box-sizing: border-box;
     padding: 0;
@@ -12,11 +13,10 @@ Table of Contents:
     2. Typografie
     3. Areas
         3.1 Header
-        3.2 ...
-        3.3 ...
-        3.4 ...
-        3.5 Footer
-    4. Media Queries
+        3.2 Main
+        3.3 Regions
+        3.4 Error message
+        3.5 Image World Map
 ---------------------------------------------------------------------*/
 
 /*----------------------
@@ -25,7 +25,7 @@ Table of Contents:
 body {
     min-height: 100vh;
 
-    background-color: #e7ecef;
+    background-color: var(--color-moss-green);
 }
 
 /*------------ 1.1 Kleuren ------------
@@ -43,7 +43,8 @@ body {
     /* Oceania */
     --color-purple: #A653BA;
     /* Background color */
-    --color-off-white: #FDF5E6;
+    --color-grey: #e7ecef;
+    --color-moss-green: #2E7669;
 }
 
 
@@ -92,7 +93,7 @@ header {
     text-align: center;
 }
 
-/*------------ Main ------------*/
+/*------------ 3.2 Main ------------*/
 main {
     padding: 30px;
 
@@ -102,23 +103,24 @@ main {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px;
+    margin: 20px 50px;
 
     /*border: 1px solid blue;*/
 }
 
 .ul-countries {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
+    column-count: 3;
+    padding: 40px 0;
+
+    background-color: var(--color-grey);
+    border: 1px solid var(--color-moss-green);
 }
 
 .country {
     flex-basis: 33.33%;
-    padding-left: 50px;
+    padding: 0 0 20px 50px;
+    overflow: auto;
 
-    /*border: 1px solid green;*/
 }
 
 .img-flag {
@@ -126,9 +128,7 @@ main {
     padding-right: 5px;
 }
 
-
-
-/*------------ 3.1 Regions ------------*/
+/*------------ 3.3 Regions ------------*/
 /* Americas */
 .green {
     color: var(--color-green);
@@ -154,12 +154,12 @@ main {
     color: var(--color-purple);
 }
 
-/*------------ 3.2 Error Messages ------------*/
+/*------------ 3.4 Error Messages ------------*/
 .error-message {
     color: red;
 }
 
-/*------------ 3.3 Image world map ------------*/
+/*------------ 3.5 Image world map ------------*/
 .img-world-map {
     width: 100%;
     margin: 20px;

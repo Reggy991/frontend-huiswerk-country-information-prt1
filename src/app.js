@@ -18,7 +18,7 @@ async function fetchCountries() {
             return `
             <div class="country">
             <li style="color: ${color}"><span class="img-flag">${country.flag}</span>${country.name.common}</li>
-            <li>Has a population of ${country.population} people</li><br>
+            <li>Has a population of ${country.population} people</li>
             </div>
             `;
         });
