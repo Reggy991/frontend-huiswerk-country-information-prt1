@@ -7,7 +7,7 @@
 
 body {
   min-height: 100vh;
-  background-color: var(--color-moss-green);
+  background-color: #00000b;
 }
 
 :root {
@@ -21,6 +21,7 @@ body {
 }
 
 body {
+  color: #fff;
   font-family: Roboto, sans-serif;
 }
 
@@ -29,21 +30,43 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
+  color: #fff;
   font-size: 50px;
-}
-
-.subtitle {
-  font-size: 20px;
-  font-weight: 500;
 }
 
 ul {
   list-style-type: none;
 }
 
+.ul-countries {
+  font-size: 18px;
+  font-weight: 300;
+}
+
+.country-name {
+  font-family: Rubik, sans-serif;
+  font-size: 30px;
+}
+
+input, input::placeholder, button {
+  font-family: Roboto, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+button {
+  text-transform: uppercase;
+}
+
+.countries-found {
+  color: #fff;
+  font-size: 14px;
+  font-style: italic;
+}
+
 header {
-  height: 500px;
-  background-image: url("world_map.34fa97b5.png");
+  height: 400px;
+  background-image: url("pexels-pixabay-41949.5b3bdd07.jpg");
   background-position: center;
   background-size: cover;
   flex-direction: column;
@@ -53,24 +76,63 @@ header {
 
 .header-wrapper {
   text-align: center;
+  align-items: center;
 }
 
 main {
   padding: 30px;
 }
 
+input {
+  width: 250px;
+  opacity: .6;
+  border: 1px solid #fff;
+  border-radius: 50px 0 0 50px;
+  margin-top: 35px;
+  padding: 15px 15px 15px 25px;
+}
+
+input::placeholder {
+  text-align: left;
+  overflow: visible;
+}
+
+input:focus {
+  outline: none;
+}
+
+button {
+  background-color: #fff;
+  border: 1px solid #fff;
+  border-radius: 0 50px 50px 0;
+  margin-left: -5px;
+  padding: 15px 30px 15px 25px;
+}
+
+button:hover {
+  cursor: pointer;
+  background-color: #feffd3;
+  border: 1px solid #feffd3;
+}
+
 .outer-container {
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   margin: 20px 50px;
   display: flex;
 }
 
 .ul-countries {
-  column-count: 3;
-  background-color: var(--color-grey);
-  border: 1px solid var(--color-moss-green);
-  padding: 40px 0;
+  width: 70%;
+  background-color: #1b1c45;
+  border: 1px solid #1b1c45;
+  border-radius: 4px;
+  padding: 40px 70px 0;
+}
+
+.placeholder-results {
+  text-align: center;
+  padding-bottom: 40px;
 }
 
 .country {
@@ -80,8 +142,20 @@ main {
 }
 
 .img-flag {
+  height: 22px;
   padding-right: 5px;
-  font-size: 22px;
+}
+
+.header-country {
+  margin-bottom: 20px;
+}
+
+li + li {
+  margin-bottom: 5px;
+}
+
+.last-sentence {
+  margin-bottom: 50px;
 }
 
 .green {

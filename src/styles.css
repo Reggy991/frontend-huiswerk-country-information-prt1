@@ -25,7 +25,7 @@ Table of Contents:
 body {
     min-height: 100vh;
 
-    background-color: var(--color-moss-green);
+    background-color: #00000B;
 }
 
 /*------------ 1.1 Kleuren ------------
@@ -53,6 +53,7 @@ body {
 ----------------------*/
 body {
     font-family: 'Roboto', sans-serif;
+    color: white;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -61,15 +62,37 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
     font-size: 50px;
-}
-
-.subtitle {
-    font-weight: 500;
-    font-size: 20px;
+    color: white;
 }
 
 ul {
     list-style-type: none;
+}
+
+.ul-countries {
+    font-size: 18px;
+    font-weight: 300;
+}
+
+.country-name {
+    font-family: 'Rubik', sans-serif;
+    font-size: 30px;
+}
+
+input, input::placeholder, button {
+    font-size: 14px;
+    font-weight: 500;
+    font-family: 'Roboto', sans-serif;
+}
+
+button {
+    text-transform: uppercase;
+}
+
+.countries-found {
+    font-size: 14px;
+    color: white;
+    font-style: italic;
 }
 
 /*----------------------
@@ -79,10 +102,10 @@ ul {
 /*------------ 3.1 Header ------------*/
 
 header {
-    background-image: url("./assets/world_map.png");
+    background-image: url("./assets/pexels-pixabay-41949.jpg");
     background-size: cover;
     background-position: center;
-    height: 500px;
+    height: 400px;
 
     display: flex;
     flex-direction: column;
@@ -91,6 +114,7 @@ header {
 
 .header-wrapper {
     text-align: center;
+    align-items: center;
 }
 
 /*------------ 3.2 Main ------------*/
@@ -99,9 +123,43 @@ main {
 
     /*border: 1px solid red;*/
 }
+
+input {
+    padding: 15px 15px 15px 25px;
+    border-radius: 50px 0 0 50px;
+    width: 250px;
+    border: 1px solid white;
+    /*background-color: transparent;*/
+    margin-top: 35px;
+    opacity: 60%;
+}
+
+input::placeholder {
+    text-align: left;
+    overflow: visible;
+}
+
+input:focus {
+    outline: none;
+}
+
+button {
+    background-color: white;
+    padding: 15px 30px 15px 25px;
+    border-radius: 0 50px 50px 0;
+    border: 1px solid white;
+    margin-left: -5px;
+}
+
+button:hover {
+    cursor: pointer;
+    background-color: #FEFFD3;
+    border: 1px solid #FEFFD3;
+}
+
 .outer-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     margin: 20px 50px;
 
@@ -109,23 +167,40 @@ main {
 }
 
 .ul-countries {
-    column-count: 3;
-    padding: 40px 0;
+    padding: 40px 70px 0 70px;
 
-    background-color: var(--color-grey);
-    border: 1px solid var(--color-moss-green);
+    background-color: #1B1C45;
+    border: 1px solid #1B1C45;
+    border-radius: 4px;
+    width: 70%;
+}
+
+.placeholder-results {
+    padding-bottom: 40px;
+    text-align: center;
 }
 
 .country {
     flex-basis: 33.33%;
     padding: 0 0 20px 50px;
     overflow: auto;
-
 }
 
 .img-flag {
-    font-size: 22px;
+    height: 22px;
     padding-right: 5px;
+}
+
+.header-country {
+    margin-bottom: 20px;
+}
+
+li + li {
+    margin-bottom: 5px;
+}
+
+.last-sentence {
+    margin-bottom: 50px;
 }
 
 /*------------ 3.3 Regions ------------*/
