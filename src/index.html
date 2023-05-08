@@ -10,17 +10,24 @@
 
 <header>
     <div class="header-wrapper">
-    <h1>Map of the world</h1>
-        <p class="subtitle">All countries in the world from least to most inhabitants per country.</p>
+        <h1>Let's search some countries</h1>
+
+        <form action="" id="submit-form">
+            <label for="input-field">
+                <input id="input-field" type="text" autocomplete="off" placeholder="Find your country">
+            </label>
+            <button id="button" type="submit">Search</button>
+        </form>
     </div>
 </header>
 <main>
     <div class="outer-container">
-    <!--    Lijst voor alle landen -->
-    <ul class="ul-countries" id="countries"></ul>
+    <!--    Resultaat van zoekopdracht -->
+    <ul class="ul-countries" id="countries">
 
     <!--    Plek om errors in weer te geven -->
     <p id="error" class="error-message"></p>
+    </ul>
     </div>
 </main>
 </body>

@@ -9,6 +9,7 @@ export function errorHandling(error) {
     }
 }
 
+/*
 export function regionColor(region) {
     const colors = {
         "Africa": "blue",
@@ -19,4 +20,4 @@ export function regionColor(region) {
     };
 
     return colors[region];
-}
+}*/

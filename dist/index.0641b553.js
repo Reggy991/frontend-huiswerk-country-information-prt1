@@ -563,33 +563,78 @@ var _axiosDefault = parcelHelpers.interopDefault(_axios);
 var _helperfunction = require("./helperfunction");
 console.log("Werkt dit nog?");
 const countryList = document.getElementById("countries");
+const inputField = document.getElementById("input-field");
+const submitForm = document.getElementById("submit-form");
+countryList.innerHTML = `<li class="placeholder-results">Please, enter a country to search.</li>`;
+submitForm.addEventListener("submit", (event)=>{
+    event.preventDefault();
+    fetchCountries(inputField.value);
+    inputField.value = "";
+});
+async function fetchCountries(countryName) {
+    try {
+        const response = await (0, _axiosDefault.default).get("https://restcountries.com/v2/all");
+        console.log(response.data);
+        const filteredCountries = response.data.filter((country)=>country.name.toLowerCase().includes(countryName.toLowerCase()));
+        if (filteredCountries.length === 0) {
+            countryList.innerHTML = `<li class="placeholder-results">I'm sorry, no matching countries found.</li>`;
+            return;
+        }
+        const numResults = filteredCountries.length;
+        const countryPlural = numResults === 1 ? "country" : "countries";
+        const countryListItems = filteredCountries.map((country)=>{
+            let currencyText = ` and you can pay with ${country.currencies[0].name}s`;
+            if (country.currencies.length > 1) currencyText += ` and ${country.currencies[1].name}s`;
+            return `
+            <li class="header-country"><img class="img-flag" src="${country.flag}" alt="image-flag"> <span class="country-name">${country.name}</span></li>
+            <li>${country.name} is situated in ${country.subregion}. It has a population of ${country.population} people.</li>
+            <li class="last-sentence">The capital is ${country.capital} ${currencyText}.</li>`;
+        });
+        countryList.innerHTML = `<li class="placeholder-results"><span class="countries-found">${numResults} matching ${countryPlural} found:</span></li>` + countryListItems.join("");
+    } catch (error) {
+        console.error(error);
+        (0, _helperfunction.errorHandling)(error);
+    }
+} // fetchCountries("Georgia");
+ /*
+const countryList = document.getElementById("countries");
 async function fetchCountries() {
     try {
-        const response = await (0, _axiosDefault.default).get("https://restcountries.com/v3.1/all?fields=name,flag,population,region");
-        console.log(response.data);
+        const response = await axios.get('https://restcountries.com/v2/all');
+        console.log(response.data)
+
+        // ?fields=name,flag,population,region
+        // <img class="img-flag">${country.flag}</img>
+
         // Sorteer de data op populatie van laag naar hoog
-        response.data.sort((a, b)=>a.population - b.population);
-        const countryListItems = response.data.map((country)=>{
+        response.data.sort((a, b) => a.population - b.population);
+
+        const countryListItems = response.data.map(country => {
             const region = country.region;
-            const color = (0, _helperfunction.regionColor)(region);
+            const color = regionColor(region);
             return `
             <div class="country">
-            <li style="color: ${color}"><span class="img-flag">${country.flag}</span>${country.name.common}</li>
-            <li>Has a population of ${country.population} people</li>
+            <li style="color: ${color}"><img class="img-flag" src="${country.flag}" alt="image-flag"></li>
+            <li>${country.name}</li>
+            <li>${country.name} is situated in ${country.subregion}. It has a population of ${country.population} people</li>
+            <li>The capital is ${country.capital} and you can pay with ${country.currencies.name}</li>
             </div>
             `;
         });
         countryList.innerHTML = countryListItems.join("");
-    } catch (error) {
+    } catch(error) {
         // Errors afvangen in de console
         console.error(error);
+
         // Errors communiceren in de UI
-        (0, _helperfunction.errorHandling)(error);
+        errorHandling(error);
     }
 }
-fetchCountries();
 
-},{"axios":"jo6P5","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./helperfunction":"8Yz44"}],"jo6P5":[function(require,module,exports) {
+void fetchCountries();
+*/ 
+
+},{"axios":"jo6P5","./helperfunction":"8Yz44","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"jo6P5":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "default", ()=>(0, _axiosJsDefault.default));
@@ -1565,7 +1610,7 @@ var _axiosErrorJsDefault = parcelHelpers.interopDefault(_axiosErrorJs);
 // temporary hotfix to avoid circular references until AxiosURLSearchParams is refactored
 var _formDataJs = require("../platform/node/classes/FormData.js");
 var _formDataJsDefault = parcelHelpers.interopDefault(_formDataJs);
-var Buffer = require("129004e531b78b23").Buffer;
+var Buffer = require("9df1d00bfecb344c").Buffer;
 "use strict";
 /**
  * Determines if the given thing is a array or js object.
@@ -1720,15 +1765,15 @@ const predicates = (0, _utilsJsDefault.default).toFlatObject((0, _utilsJsDefault
 }
 exports.default = toFormData;
 
-},{"129004e531b78b23":"fCgem","../utils.js":"5By4s","../core/AxiosError.js":"3u8Tl","../platform/node/classes/FormData.js":"aFlee","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"fCgem":[function(require,module,exports) {
+},{"9df1d00bfecb344c":"fCgem","../utils.js":"5By4s","../core/AxiosError.js":"3u8Tl","../platform/node/classes/FormData.js":"aFlee","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"fCgem":[function(require,module,exports) {
 /*!
  * The buffer module from node.js, for the browser.
  *
  * @author   Feross Aboukhadijeh <https://feross.org>
  * @license  MIT
  */ /* eslint-disable no-proto */ "use strict";
-var base64 = require("1974822665d581be");
-var ieee754 = require("a75498ef25b7770a");
+var base64 = require("f046e54ba082d757");
+var ieee754 = require("8b231eaa8ccc57c3");
 var customInspectSymbol = typeof Symbol === "function" && typeof Symbol["for"] === "function" // eslint-disable-line dot-notation
  ? Symbol["for"]("nodejs.util.inspect.custom") // eslint-disable-line dot-notation
  : null;
@@ -2950,7 +2995,7 @@ var hexSliceLookupTable = function() {
     return table;
 }();
 
-},{"1974822665d581be":"eIiSV","a75498ef25b7770a":"cO95r"}],"eIiSV":[function(require,module,exports) {
+},{"f046e54ba082d757":"eIiSV","8b231eaa8ccc57c3":"cO95r"}],"eIiSV":[function(require,module,exports) {
 "use strict";
 exports.byteLength = byteLength;
 exports.toByteArray = toByteArray;
@@ -4744,15 +4789,8 @@ exports.default = HttpStatusCode;
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"8Yz44":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "errorHandling", ()=>errorHandling);
-parcelHelpers.export(exports, "regionColor", ()=>regionColor);
-const errorMessage = document.getElementById("error");
-function errorHandling(error) {
-    if (error.response.status === 404) errorMessage.textContent = "Page not found | 404";
-    else if (error.response.status === 500) errorMessage.textContent = "Internal server error | 500";
-    else errorMessage.textContent = "Sorry, there was an error. Try again.";
-}
-function regionColor(region) {
+parcelHelpers.export(exports, "errorHandling", ()=>errorHandling) /*
+export function regionColor(region) {
     const colors = {
         "Africa": "blue",
         "Americas": "green",
@@ -4760,7 +4798,14 @@ function regionColor(region) {
         "Europe": "yellow",
         "Oceania": "purple"
     };
+
     return colors[region];
+}*/ ;
+const errorMessage = document.getElementById("error");
+function errorHandling(error) {
+    if (error.response.status === 404) errorMessage.textContent = "Page not found | 404";
+    else if (error.response.status === 500) errorMessage.textContent = "Internal server error | 500";
+    else errorMessage.textContent = "Sorry, there was an error. Try again.";
 }
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["lKzq4","bNKaB"], "bNKaB", "parcelRequirecb08")
